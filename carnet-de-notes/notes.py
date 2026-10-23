@@ -11,6 +11,7 @@ def lire_notes(chemin):
 
 def mention(moyenne):
     if moyenne >= 16:
+        print("DEBUG")
         return "Très bien"
     if moyenne >= 14:
         return "Bien"
