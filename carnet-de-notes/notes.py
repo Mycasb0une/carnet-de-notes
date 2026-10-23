@@ -21,7 +21,8 @@ def mention(moyenne):
 
 notes = lire_notes("eleves.csv")
 moyenne = round(sum(notes) / len(notes), 1)
-print(f"Moyenne : {moyenne}")
+print(f"Moyenne : {moyenne}", mention(moyenne))
+
 
 with open("rapport.txt", "w", encoding="utf-8") as rapport:
-    rapport.write(f"{len(notes)} notes, moyenne {moyenne}\n")
+    rapport.write(f"{len(notes)} notes, moyenne {moyenne}\n, mention : {mention(moyenne)}")
