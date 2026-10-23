@@ -11,7 +11,6 @@ def lire_notes(chemin):
 
 def mention(moyenne):
     if moyenne >= 16:
-        print("DEBUG")
         return "Très bien"
     if moyenne >= 14:
         return "Bien"
@@ -19,11 +18,14 @@ def mention(moyenne):
         return "Assez bien"
     return "Passable"
 
+def meilleur_note(notes):
+    return max(notes)
 
 notes = lire_notes("eleves.csv")
 moyenne = round(sum(notes) / len(notes), 1)
-print(f"Moyenne : {moyenne}", mention(moyenne))
+print(f"Moyenne : {moyenne}", mention(moyenne), f"Meilleure note : {meilleur_note(notes)}")
 
 
 with open("rapport.txt", "w", encoding="utf-8") as rapport:
-    rapport.write(f"{len(notes)} notes, moyenne {moyenne}\n, mention : {mention(moyenne)}")
+    rapport.write(f"{len(notes)} notes, moyenne {moyenne}, mention : {mention(moyenne)}"\
+                   f", meilleure note : {meilleur_note(notes)}")
